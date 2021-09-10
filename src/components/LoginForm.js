@@ -12,11 +12,11 @@ function LoginForm({Login, error, adminUser}) {
     const submitHandler = e => {
         e.preventDefault();
         Login(details);
-        console.log(dispatch(login({
+        dispatch(login({
             name: details.name,
             email: details.email,
             password: details.password,
-        })))
+        }))
     }
 
     return (

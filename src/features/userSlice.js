@@ -14,9 +14,18 @@ const Reducer = {
 }
 
 export const userSlice = createSlice({
+
+    //Slice name
     name:"user",
+    //Slice name
+    
+    //Initial State
     initialState,
+    //Initial State
+
+    //Implementing Reducer
     reducers:Reducer
+    //Implementing Reducer
 });
 
 export const {login, logout} = userSlice.actions;

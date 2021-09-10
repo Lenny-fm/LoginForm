@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import LoginForm from './components/LoginForm';
+import { logout } from './features/userSlice'
 
 function App() {
   
@@ -10,6 +12,7 @@ function App() {
 
   const [user, setUser] = useState({name: "", email: ""});
   const [error, setError] = useState("");
+  const dispatch = useDispatch();
 
   const Login = details => {
     if ((details.email == adminUser.email) || (details.password == adminUser.password)) {
@@ -23,7 +26,9 @@ function App() {
       name: "",
       email: ""
     })
-    console.log("Logout")
+    dispatch(logout({
+      user:null
+    }))
   }
   return (
     <div>
