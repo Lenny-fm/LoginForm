@@ -1,22 +1,18 @@
 import React, { useState } from 'react'
 import '../style.css'
-import { useDispatch } from 'react-redux'
-import { login } from "../features/userSlice"
+import { useDispatch, connect, useSelector } from 'react-redux'
+import { login } from "../features/login.js"
 
-
-function LoginForm({Login, error, adminUser}) {
-
+const LoginForm = ({Login, error, adminUser}) => {
     const [details, setDetails] = useState({name: "", email: "", password: ""})
+    const user = useSelector(state => state.user)
+    console.log(user)
     const dispatch = useDispatch()
 
     const submitHandler = e => {
         e.preventDefault();
         Login(details);
-        dispatch(login({
-            name: details.name,
-            email: details.email,
-            password: details.password,
-        }))
+        dispatch(login(details))
     }
 
     return (
@@ -36,8 +32,8 @@ function LoginForm({Login, error, adminUser}) {
                 <div className="textbox">
                     <i className="fas fa-lock"></i>
                     <label htmlFor="password"></label>
-                    <input id="password" type="password" placeholder="Password" name="password" id="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
-                </div>
+                    <input id="password" type="password" placeholder="Password" name="password" onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
+                </div> 
                 <div>
                     <input id="submit" type="submit" value="Login"/>
                 </div>
@@ -45,5 +41,18 @@ function LoginForm({Login, error, adminUser}) {
         </form>
     )
 }
+
+/*const mapStatetoProps = (state) => {
+    console.log(state)
+    return {
+        users: state.user
+    }
+}
+
+/*const mapStatetoDispatch = (dispatch) => {
+    return {
+        login: details => dispatch(login(details))
+    }
+}*/
 
 export default (LoginForm);

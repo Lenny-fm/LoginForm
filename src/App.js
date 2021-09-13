@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/LoginForm';
-import { logout } from './features/userSlice'
+//import { logout } from './features/userSlice'
 
-function App() {
+const App = () => {
   
   const adminUser = {
     email:"admin@admin.fr",
@@ -26,9 +26,9 @@ function App() {
       name: "",
       email: ""
     })
-    dispatch(logout({
+    /*dispatch(logout({
       user:null
-    }))
+    }))*/
   }
   return (
     <div>

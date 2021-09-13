@@ -46,7 +46,7 @@ input#name,#email,#password{
   float: left;
   margin: 0 10px;
 }
-input#submit{
+button#submit{
   width: 100%;
   background: none;
   border: 2px solid #4caf50;
